@@ -12,10 +12,17 @@ export default function Index() {
     return (
         <Layout>
             <div className={styles.heroContainer}>
-                <Image src={require("../assets/img/logo.svg")} width={220} height={220} alt="Logo" />
-                <Image src={require("../assets/img/secure-drawing.svg")} height={400} width={400} alt="Hero"/>
+                <div className={styles.logoWrapper}>
+                    <Image src={require("../assets/img/logo.svg")} layout="fill" objectFit="contain" alt="Logo" />
+                </div>
+                <div className={styles.introText}>
+                    <p>Welcome to the future of digital security. Authenticate and manage your digital identity with unprecedented ease and ironclad protection.</p>
+                </div>
+                <div className={styles.imageWrapper}>
+                    <Image src={require("../assets/img/secure-drawing.svg")} layout="fill" objectFit="contain" alt="Hero" />
+                </div>
                 <div className={styles.loginButtonContainer}>
-                    <button className={styles.loginButton} onClick={handleLogin}>Sign in using Worldcoin</button>
+                    <button className={styles.loginButton} onClick={handleLogin}>Connect with Worldcoin</button>
                 </div>
             </div>
         </Layout>
