@@ -1,8 +1,9 @@
-@import url('https://fonts.googleapis.com/css2?family=Hanken+Grotesk&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Sora:wght@100..800&display=swap');
 
 .header {
   background-color: #fff; /* Adjust color to match your design */
   padding: 1rem 2rem; /* Adjust padding to match your design */
+  border-radius: 20px;
 }
 
 .nav {
@@ -33,7 +34,7 @@
 .navItem a {
   text-decoration: none;
   color: #000; /* Adjust link color to match your design */
-  font-family: 'Hanken Grotesk', sans-serif;
+  font-family: 'Sora', sans-serif;
   position: relative; /* Add this line */
 }
 
@@ -45,6 +46,34 @@
   width: 100%;
   height: 2px; /* Adjust thickness as needed */
   background-color: #501EE5; /* Adjust shade color */
+}
+
+.loginButton {
+  padding: 0.5rem 1rem;
+  background-color: #501EE5;
+  color: #fff;
+  font-size: 1rem;
+  font-weight: 700;
+  border-radius: 16px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 6px 20px 0 rgba(80, 30, 229, 0.2); /* Softer shadow for a more modern look */
+  border: none; /* Remove the border for a cleaner look */
+  transform: translateY(0); /* Initial state for the transform */
+  will-change: transform; /* Optimizes animations */
+}
+
+.loginButton:hover, .loginButton:focus {
+  background-color: #fff;
+  color: #501EE5;
+  box-shadow: 0 8px 25px 0 rgba(80, 30, 229, 0.3); /* Slightly larger shadow for depth */
+  transform: translateY(-3px); /* Lift button to imply action */
+  outline: none; /* Remove focus outline to maintain style */
+}
+
+/* Adding focus styles for accessibility */
+.loginButton:focus-visible {
+  box-shadow: 0 0 0 4px rgba(80, 30, 229, 0.5); /* Highlight focus */
 }
 
 
