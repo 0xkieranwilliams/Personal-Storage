@@ -11,6 +11,18 @@ import Modal from "../components/modal";
 console.log(contractABI)
 
 export default function Dashboard() {
+    const [isModalOpen, setIsModalOpen] = useState(false);
+    const [selectedFile, setSelectedFile] = useState(null);
+    const [fileCategory, setFileCategory] = useState('');
+    const handleFileSelect = (e) => {
+        const file = e.target.files[0];
+        setSelectedFile(file);
+        setIsModalOpen(true);
+    };
+
+    const closeModal = () => {
+        setIsModalOpen(false);
+    };
   const {address} = useAccount();
   console.log("Hi there!")
   console.log(address)
