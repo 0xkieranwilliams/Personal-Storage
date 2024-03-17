@@ -20,8 +20,8 @@ export default function Dashboard() {
       console.log(contract.getDocuments)
 
       // Call the getDocuments function on the contract
-      const result = await contract["getDocuments(string)"]("Medical Records");
-      console.log(result)
+      const result = await contract.getDocuments("Passports")
+        console.log(result)
 
     };
 
