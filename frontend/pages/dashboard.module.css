@@ -1,0 +1,120 @@
+.dashboardContainer {
+    padding: 20px;
+    border-radius: 30px;
+    box-shadow: 0 10px 50px rgba(0, 0, 0, 0.1);
+    background: #fff;
+    margin: 20px auto;
+}
+
+.dashboardTitle {
+    color: #501EE5;
+    text-align: left;
+    margin-bottom: 0;
+}
+
+.dashboardSubtitle {
+    text-align: left;
+    margin-bottom: 40px;
+}
+
+.tableContainer {
+    overflow-x: auto;
+    margin-top: 20px;
+    border-radius: 16px;
+    margin-bottom: 10px;
+}
+
+.styledTable {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 0;
+    font-size: 0.9em;
+    min-width: 400px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+    background: linear-gradient(45deg, #f3f1f8, #fefefe);
+}
+
+.styledTable thead tr {
+    background-color: #501EE5;
+    color: #ffffff;
+    text-align: left;
+    font-weight: bold;
+}
+
+.styledTable th,
+.styledTable td {
+    padding: 18px 15px;
+    transition: background-color 0.3s ease;
+}
+
+.styledTable tbody tr:nth-of-type(odd) {
+    background-color: #f7f7fc; /* A lighter shade for zebra striping */
+}
+
+.styledTable tbody tr:hover {
+    background-color: #ecebff;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Slight elevation effect on hover */
+}
+
+
+.styledTable th:hover {
+    background-color: #372D7A; /* Indication for sortable columns */
+}
+
+.activeRow {
+    background-color: #ecebff; /* Enhanced visibility for active rows */
+}
+
+.filter-input {
+    padding: 8px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    width: calc(100% - 16px); /* Responsive width */
+}
+
+
+@media (max-width: 768px) {
+    .dashboardContainer {
+        margin: 20px;
+        padding: 10px;
+    }
+
+    .styledTable {
+        font-size: 0.8em;
+    }
+}
+
+.buttonContainer {
+    display: flex;
+    justify-content: flex-end; /* Aligns the button to the right */
+    margin-bottom: 20px; /* Adds some space between the button and the table */
+}
+
+.uploadButton {
+    margin-left: 16px;
+    padding: 0.5rem 1rem;
+    background-color: #501EE5;
+    color: #fff;
+    font-size: 1rem;
+    font-weight: 700;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 6px 20px 0 rgba(80, 30, 229, 0.2); /* Softer shadow for a more modern look */
+    border: none; /* Remove the border for a cleaner look */
+    transform: translateY(0); /* Initial state for the transform */
+    will-change: transform; /* Optimizes animations */
+}
+
+.uploadButton:hover, .uploadButton:focus {
+    background-color: #fff;
+    color: #501EE5;
+    box-shadow: 0 8px 25px 0 rgba(80, 30, 229, 0.3); /* Slightly larger shadow for depth */
+    outline: none; /* Remove focus outline to maintain style */
+}
+
+/* Adding focus styles for accessibility */
+.uploadButton:focus-visible {
+    box-shadow: 0 0 0 4px rgba(80, 30, 229, 0.5); /* Highlight focus */
+}

@@ -1,6 +1,8 @@
+import React, {useEffect, useState} from 'react';
 import Layout from "../components/layout";
+import styles from './dashboard.module.css';
+import {useSession} from "next-auth/react";
 import { ethers } from "ethers";
-import { useEffect, useState } from "react";
 import addresses from "../blockchain-config/contract_address.json";
 import contractABI from "../blockchain-config/abi.json";
 const contractAddress = addresses["314159"];
@@ -26,16 +28,50 @@ export default function Dashboard() {
     fetchDocuments();
   }, []);
 
-  return (
-    <Layout>
-      <h1>This page is protected by NextAuth Middleware</h1>
-      <p>Only admin users can see this page.</p>
-      <p>
-        To learn more about the NextAuth middleware see&nbsp;
-        <a href="https://next-auth.js.org/configuration/nextjs#middleware">
-          the docs
-        </a>
-      </p>
-    </Layout>
-  );
+
+    const tableData = [
+        { id: 1, documentName: 'Document 1', documentTag: 'Tag 1' },
+        { id: 2, documentName: 'Document 2', documentTag: 'Tag 2' },
+        { id: 3, documentName: 'Document 3', documentTag: 'Tag 3' },
+        { id: 4, documentName: 'Document 4', documentTag: 'Tag 4' },
+        { id: 5, documentName: 'Document 5', documentTag: 'Tag 5' },
+    ];
+
+
+
+
+    return (
+        <Layout>
+            <div className={styles.dashboardContainer}>
+                <h1 className={styles.dashboardTitle}>Dashboard</h1>
+                <p className={styles.dashboardSubtitle}>
+                    Welcome to the dashboard. Here you can view and manage your documents.
+                </p>
+                {/* Button Container */}
+                <div className={styles.buttonContainer}>
+                    <button className={styles.uploadButton}>Upload Document</button>
+                </div>
+                <div className={styles.tableContainer}>
+                    <table className={styles.styledTable}>
+                        <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Document Name</th>
+                            <th>Document Tag</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        {tableData.map(data => (
+                            <tr key={data.id} className={data.id % 2 === 1 ? styles.activeRow : ''}>
+                                <td><b>{data.id}</b></td>
+                                <td>{data.documentName}</td>
+                                <td>{data.documentTag}</td>
+                            </tr>
+                        ))}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </Layout>
+    );
 }

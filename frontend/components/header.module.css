@@ -2,8 +2,9 @@
 
 .header {
   background-color: #fff; /* Adjust color to match your design */
-  padding: 1rem 2rem; /* Adjust padding to match your design */
-  border-radius: 20px;
+  padding: 0.7rem 2rem; /* Adjust padding to match your design */
+  border-radius: 30px;
+  box-shadow: 0 10px 50px rgba(0, 0, 0, 0.1);
 }
 
 .nav {
@@ -20,7 +21,7 @@
 }
 
 .navItem {
-  margin-right: 4rem; /* Adjust spacing to match your design */
+  margin-right: 2rem; /* Adjust spacing to match your design */
 }
 
 .navItem {
@@ -49,12 +50,13 @@
 }
 
 .loginButton {
+  margin-left: 16px;
   padding: 0.5rem 1rem;
   background-color: #501EE5;
   color: #fff;
   font-size: 1rem;
   font-weight: 700;
-  border-radius: 16px;
+  border-radius: 12px;
   cursor: pointer;
   transition: all 0.3s ease;
   box-shadow: 0 6px 20px 0 rgba(80, 30, 229, 0.2); /* Softer shadow for a more modern look */
@@ -67,7 +69,6 @@
   background-color: #fff;
   color: #501EE5;
   box-shadow: 0 8px 25px 0 rgba(80, 30, 229, 0.3); /* Slightly larger shadow for depth */
-  transform: translateY(-3px); /* Lift button to imply action */
   outline: none; /* Remove focus outline to maintain style */
 }
 
