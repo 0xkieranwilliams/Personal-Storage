@@ -61,7 +61,7 @@ export default function Header() {
             )}
           </ul>
           {session?.user ? (
-                  <div style={{width: '400px', display: "flex", justifyContent: "flex-end"}}>
+                  <div style={{width: '600px', display: "flex", justifyContent: "flex-end"}}>
                     <ConnectButton accountStatus={'avatar'} />
               <button className={styles.loginButton} onClick={handleLogout}>Sign out</button>
             </div>
