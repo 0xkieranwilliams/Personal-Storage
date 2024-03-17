@@ -46,14 +46,23 @@ export default function Header() {
               <Link style={currentPath == "/about" ? {color: '#501EE5', fontWeight: 700} : {fontWeight: 400} } href="/about">About Us</Link>
             </li>
             {session?.user && (
-                <li className={styles.navItem}>
-                    <Link style={currentPath == "/dashboard" ? {color: '#501EE5', fontWeight: 700} : {fontWeight: 400} } href="/dashboard">Dashboard</Link>
-                </li>
+                <>
+                  <li className={styles.navItem}>
+                    <Link style={currentPath == "/dashboard" ? {color: '#501EE5', fontWeight: 700} : {fontWeight: 400}}
+                          href="/dashboard">Dashboard</Link>
+                  </li>
+                  <li className={styles.navItem}>
+                    <Link style={currentPath == "/chat" ? {color: '#501EE5', fontWeight: 700} : {fontWeight: 400}}
+                          href="/chat">Chat</Link>
+                  </li>
+                </>
+
+
             )}
           </ul>
           {session?.user ? (
-            <div style={{width:'400px', display: "flex", justifyContent:"flex-end"}}>
-              <ConnectButton accountStatus={'avatar'} />
+                  <div style={{width: '400px', display: "flex", justifyContent: "flex-end"}}>
+                    <ConnectButton accountStatus={'avatar'} />
               <button className={styles.loginButton} onClick={handleLogout}>Sign out</button>
             </div>
           )

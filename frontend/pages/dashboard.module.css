@@ -87,7 +87,8 @@
 
 .buttonContainer {
     display: flex;
-    justify-content: flex-end; /* Aligns the button to the right */
+    justify-content: space-between; /* Aligns the button to the right */
+    align-items: flex-end;
     margin-bottom: 20px; /* Adds some space between the button and the table */
 }
 
@@ -117,4 +118,13 @@
 /* Adding focus styles for accessibility */
 .uploadButton:focus-visible {
     box-shadow: 0 0 0 4px rgba(80, 30, 229, 0.5); /* Highlight focus */
+}
+
+.dropdown {
+    margin-right: 1rem; /* Adjust as needed */
+    padding: 0.5rem;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 12px;
+    cursor: pointer;
 }

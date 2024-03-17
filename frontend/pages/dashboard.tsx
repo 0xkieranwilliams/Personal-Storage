@@ -1,10 +1,11 @@
 import React, {useEffect, useState} from 'react';
 import Layout from "../components/layout";
 import styles from './dashboard.module.css';
-import {useSession} from "next-auth/react";
-import { ethers } from "ethers";
+import {ethers} from "ethers";
 import addresses from "../blockchain-config/contract_address.json";
 import contractABI from "../blockchain-config/abi.json";
+import Modal from "../components/modal";
+
 const contractAddress = addresses["314159"];
 console.log(contractABI)
 
@@ -30,26 +31,40 @@ export default function Dashboard() {
 
 
     const tableData = [
-        { id: 1, documentName: 'Document 1', documentTag: 'Tag 1' },
-        { id: 2, documentName: 'Document 2', documentTag: 'Tag 2' },
-        { id: 3, documentName: 'Document 3', documentTag: 'Tag 3' },
-        { id: 4, documentName: 'Document 4', documentTag: 'Tag 4' },
-        { id: 5, documentName: 'Document 5', documentTag: 'Tag 5' },
+        {id: 1, documentName: 'Document 1', documentTag: 'Tag 1'},
+        {id: 2, documentName: 'Document 2', documentTag: 'Tag 2'},
+        {id: 3, documentName: 'Document 3', documentTag: 'Tag 3'},
+        {id: 4, documentName: 'Document 4', documentTag: 'Tag 4'},
+        {id: 5, documentName: 'Document 5', documentTag: 'Tag 5'},
     ];
-
-
 
 
     return (
         <Layout>
             <div className={styles.dashboardContainer}>
                 <h1 className={styles.dashboardTitle}>Dashboard</h1>
-                <p className={styles.dashboardSubtitle}>
-                    Welcome to the dashboard. Here you can view and manage your documents.
-                </p>
-                {/* Button Container */}
                 <div className={styles.buttonContainer}>
-                    <button className={styles.uploadButton}>Upload Document</button>
+                    <div>
+                        <p>Select document type to retrieve</p>
+                        <select className={styles.dropdown}>
+                            <option value="Medical Records">Medical Records</option>
+                            <option value="Passports">Passports</option>
+                            <option value="Emergency Information">Emergency Information</option>
+                            <option value="Education Transcripts">Education Transcripts</option>
+                            <option value="Legal Contracts">Legal Contracts</option>
+                            <option value="Education Transcripts">Misc</option>
+                        </select>
+                    </div>
+
+                    <input
+                        type="file"
+                        onChange={handleFileSelect}
+                        style={{display: 'none'}} // Hide the actual file input
+                        id="file-upload" // Reference for the label
+                    />
+                    <label htmlFor="file-upload" className={styles.uploadButton}>
+                        Upload Document
+                    </label>
                 </div>
                 <div className={styles.tableContainer}>
                     <table className={styles.styledTable}>
@@ -71,6 +86,16 @@ export default function Dashboard() {
                         </tbody>
                     </table>
                 </div>
+                {isModalOpen && (
+                    // Replace ModalComponent with your actual modal component
+                    <Modal
+                        fileName={selectedFile?.name !== undefined ? selectedFile.name : 'No file selected'}
+                        file={selectedFile}
+                        category={fileCategory}
+                        setCategory={setFileCategory}
+                        onClose={closeModal}
+                    />
+                )}
             </div>
         </Layout>
     );
