@@ -10,13 +10,15 @@ import "./styles.css"
 
 import type { AppProps } from "next/app"
 import type { Session } from "next-auth"
+import { config } from "../utils/clients/wagmi.client";
 
-const config = getDefaultConfig({
-  appName: 'Human Storage',
-  projectId: 'c9353e5f0c7c9fa3e481b04bb9943f8c',
-  chains: [filecoinCalibration],
-  ssr: true, // If your dApp uses server side rendering (SSR)
-});
+
+// const config = getDefaultConfig({
+//   appName: 'Human Storage',
+//   projectId: 'c9353e5f0c7c9fa3e481b04bb9943f8c',
+//   chains: [filecoinCalibration],
+//   ssr: true, // If your dApp uses server side rendering (SSR)
+// });
 
 const queryClient = new QueryClient();
 

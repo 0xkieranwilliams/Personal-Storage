@@ -4,25 +4,47 @@ import styles from './dashboard.module.css';
 import {ethers} from "ethers";
 import addresses from "../blockchain-config/contract_address.json";
 import contractABI from "../blockchain-config/abi.json";
+import { useAccount } from 'wagmi';
+import { useReadContracts } from 'wagmi'
+const contractAddress = "0x63ae84c0be6D8db645e7341b62BB30B6facd5f71";
 import Modal from "../components/modal";
-
-const contractAddress = addresses["314159"];
 console.log(contractABI)
 
 export default function Dashboard() {
+  const {address} = useAccount();
+  console.log("Hi there!")
+  console.log(address)
+  const {data} = useReadContracts({
+      contracts: [
+        {
+          abi: contractABI,
+          address: contractAddress,
+          functionName: 'isTagValid',
+          args:['Passports']
+        }
+      ]
+    }
+  )
+  console.log(data)
+
   useEffect(() => {
     console.log(contractAddress)
+
     const fetchDocuments = async () => {
       // Connect to the Ethereum network
-      const provider = new ethers.BrowserProvider(window.ethereum);
 
-      // Connect to the contract
-      const contract = new ethers.Contract(contractAddress, contractABI, provider);
-      console.log(contract.getDocuments)
+      // const provider = new ethers.BrowserProvider(window.ethereum);
 
-      // Call the getDocuments function on the contract
-      const result = await contract.getDocuments("Passports")
-        console.log(result)
+      // const abi = [
+      //   "function getDocuments(string memory _documentType) public view returns (string[] memory)"
+      // ]
+      // // Connect to the contract
+      // const contract = new ethers.Contract(contractAddress, abi, provider);
+      // console.log(contract.getDocuments)
+
+      // // Call the getDocuments function on the contract
+      // const result = await contract.getDocuments("Passports");
+      // console.log(result)
 
     };
 
