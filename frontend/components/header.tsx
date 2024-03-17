@@ -10,6 +10,10 @@ export default function Header() {
     window.location.href = '/';
   }
 
+  const handleContact = () => {
+    window.location.href = '/about';
+  }
+
   return (
       <header className={styles.header}>
         <nav className={styles.nav}>
@@ -21,9 +25,14 @@ export default function Header() {
               <Link href="/about">About Us</Link>
             </li>
           </ul>
-          {session?.user && (
+          {session?.user ? (
               <button className={styles.loginButton} onClick={handleLogout}>Sign out</button>
-          )}
+          )
+              :
+                (
+                    <button className={styles.loginButton} onClick={handleContact}>Contact Us</button>
+                )
+          }
           {/* <button className={styles.loginButton} onClick={handleLogin}>Log in</button>*/}
         </nav>
       </header>

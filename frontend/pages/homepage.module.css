@@ -83,16 +83,26 @@
     font-weight: 700;
     border-radius: 16px;
     cursor: pointer;
-    transition: transform 0.3s ease;
-    box-shadow: 0 4px 14px 0 rgba(0, 0, 0, 0.25);
-    border: 2px solid #501EE5;
+    transition: all 0.3s ease;
+    box-shadow: 0 6px 20px 0 rgba(80, 30, 229, 0.2); /* Softer shadow for a more modern look */
+    border: none; /* Remove the border for a cleaner look */
+    transform: translateY(0); /* Initial state for the transform */
+    will-change: transform; /* Optimizes animations */
 }
 
-.loginButton:hover {
-    color: #501EE5;
+.loginButton:hover, .loginButton:focus {
     background-color: #fff;
-    border: 2px solid #501EE5;
+    color: #501EE5;
+    box-shadow: 0 8px 25px 0 rgba(80, 30, 229, 0.3); /* Slightly larger shadow for depth */
+    transform: translateY(-3px); /* Lift button to imply action */
+    outline: none; /* Remove focus outline to maintain style */
 }
+
+/* Adding focus styles for accessibility */
+.loginButton:focus-visible {
+    box-shadow: 0 0 0 4px rgba(80, 30, 229, 0.5); /* Highlight focus */
+}
+
 
 .loginButtonContainer {
     animation: slideInFromBottom 1s ease-out both;

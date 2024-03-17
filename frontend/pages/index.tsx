@@ -1,12 +1,13 @@
 import Layout from "../components/layout";
 import Image from 'next/image';
-import { signIn } from "next-auth/react";
+import {signIn, useSession} from "next-auth/react";
 import styles from "./homepage.module.css";
 
 export default function Index() {
+    const {data: session, status} = useSession();
     const handleLogin = () => {
         console.log('Login');
-        signIn("worldcoin", { callbackUrl: '/admin' });
+        signIn("worldcoin", { callbackUrl: '/dashboard' });
     }
 
     return (
@@ -21,9 +22,19 @@ export default function Index() {
                 <div className={styles.imageWrapper}>
                     <Image src={require("../assets/img/secure-drawing.svg")} layout="fill" objectFit="contain" alt="Hero" />
                 </div>
-                <div className={styles.loginButtonContainer}>
-                    <button className={styles.loginButton} onClick={handleLogin}>Connect with Worldcoin</button>
-                </div>
+                {session?.user ? (
+                    <div className={styles.loginButtonContainer}>
+                        <button className={styles.loginButton} onClick={() => window.location.href = '/dashboard'}>Go to Dashboard</button>
+                    </div>
+                )
+                    :
+                    (
+                        <div className={styles.loginButtonContainer}>
+                            <button className={styles.loginButton} onClick={handleLogin}>Connect with Worldcoin</button>
+                        </div>
+                    )
+
+                }
             </div>
         </Layout>
     );
