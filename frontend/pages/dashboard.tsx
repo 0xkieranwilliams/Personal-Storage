@@ -1,11 +1,8 @@
 import Layout from "../components/layout"
-import { ConnectButton } from '@rainbow-me/rainbowkit';
 
-
-export default function Page() {
+export default function Dashboard() {
   return (
     <Layout>
-      <ConnectButton />
       <h1>This page is protected by NextAuth Middleware</h1>
       <p>Only admin users can see this page.</p>
       <p>
