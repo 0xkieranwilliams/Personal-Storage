@@ -1,6 +1,6 @@
-# HumanStorage: The Evolution of Human-Document Web3 Interaction!
+# PersonalStorage: The Evolution of Human-Document Web3 Interaction!
 
-We are thrilled to unveil HumanStorage, a pioneering platform destined to redefine your engagement with digital documents. At the heart of HumanStorage lies our groundbreaking innovation: a platform where your personal documents come to life, powered by the most sophisticated Large Language Models. 
+We are thrilled to unveil PersonalStorage, a pioneering platform destined to redefine your engagement with digital documents. At the heart of PersonalStorage lies our groundbreaking innovation: a platform where your personal documents come to life, powered by the most sophisticated Large Language Models. 
 
 Choose between closed-source or open-source options to tailor your experience. This advancement unlocks the potential for conversational interactions with your data, an endeavor that, until now, remained a challenge. Whether it's retrieving specific files, uploading to your digital vault, or engaging in exploratory dialogues with AI about your data, HumanStorage makes it not just possible but seamless and intuitive.
 
